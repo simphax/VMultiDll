@@ -14,8 +14,16 @@ namespace VMultiTest
             while (true)
             {
                 VMulti vmulti = new VMulti();
-                vmulti.test();
-                System.Threading.Thread.Sleep(1000);
+                Console.WriteLine("Connect: "+vmulti.connect());
+                
+                JoystickButtonState joyButtonState = new JoystickButtonState();
+                joyButtonState.A = true;
+
+                JoystickReport joystickReport = new JoystickReport(joyButtonState,0,0);
+
+                Console.WriteLine("Update Joystick: "+vmulti.updateJoystick(joystickReport));
+                vmulti.disconnect();
+                System.Threading.Thread.Sleep(100000000);
             }
         }
     }
