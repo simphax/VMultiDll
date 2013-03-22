@@ -18,8 +18,10 @@ namespace VMultiTest
                 
                 JoystickButtonState joyButtonState = new JoystickButtonState();
                 joyButtonState.A = true;
+                joyButtonState.X = true;
+                joyButtonState.Left = true;
 
-                JoystickReport joystickReport = new JoystickReport(joyButtonState,0,0);
+                JoystickReport joystickReport = new JoystickReport(joyButtonState,1.2,0.4);
 
                 Console.WriteLine("Update Joystick: "+vmulti.updateJoystick(joystickReport));
                 vmulti.disconnect();

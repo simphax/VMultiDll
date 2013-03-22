@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace VMultiDllWrapper
 {
-    [Serializable]
     public struct JoystickButtonState
     {
         public bool A;
@@ -24,6 +23,8 @@ namespace VMultiDllWrapper
         public bool Extra2;
         public bool Extra3;
         public bool Extra4;
+        public bool Extra5;
+        public bool Extra6;
 
         public bool Left;
         public bool Right;
@@ -43,19 +44,19 @@ namespace VMultiDllWrapper
             this.buttonState = buttonState;
             if (joystickX > 1)
             {
-                joystickX = 1;
+                joystickX = 1.0;
             }
             else if (joystickX < -1)
             {
-                joystickX = -1;
+                joystickX = -1.0;
             }
             if (joystickY > 1)
             {
-                joystickY = 1;
+                joystickY = 1.0;
             }
             else if (joystickY < -1)
             {
-                joystickY = -1;
+                joystickY = -1.0;
             }
             this.joystickX = joystickX;
             this.joystickY = joystickY;
@@ -66,8 +67,41 @@ namespace VMultiDllWrapper
             ushort result = 0;
             if (buttonState.A)
             {
-                result |= 1;
+                result |= 1 << 1;
             }
+            if (buttonState.B)
+            {
+                result |= 1 << 2;
+            }
+            if (buttonState.X)
+            {
+                result |= 1 << 3;
+            }
+            if (buttonState.Y)
+            {
+                result |= 1 << 4;
+            }
+            if (buttonState.L)
+            {
+                result |= 1 << 5;
+            }
+            if (buttonState.R)
+            {
+                result |= 1 << 6;
+            }
+
+            return result;
+        }
+
+        public byte getPOVRaw()
+        {
+            byte result = 0;
+
+            /*
+            if (buttonState.Left)
+            {
+                result = 129;
+            }*/
 
             return result;
         }

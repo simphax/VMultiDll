@@ -33,9 +33,6 @@ namespace VMultiDllWrapper
         public VMulti()
         {
             vmulti = vmulti_alloc();
-            Console.WriteLine("Success");
-            Console.WriteLine(vmulti);
-            vmulti_free(vmulti);
         }
 
         public bool connect()
@@ -53,14 +50,9 @@ namespace VMultiDllWrapper
 
         public bool updateJoystick(JoystickReport report)
         {
-            HelloWorld();
-
             if (connected)
             {
-
-                ushort buttons = report.getButtonsRaw();
-
-                return vmulti_update_joystick(vmulti, buttons, 0, report.getJoystickXRaw(), report.getJoystickYRaw(), 128, 128, 0);
+                return vmulti_update_joystick(vmulti, report.getButtonsRaw(), report.getPOVRaw(), report.getJoystickXRaw(), report.getJoystickYRaw(), 128, 128, 0);
             }
             else
             {
