@@ -25,7 +25,7 @@ namespace VMultiDllWrapper
         public static extern void vmulti_disconnect(IntPtr vmulti);
 
         [DllImport("VMultiDll.dll")]
-        public static extern bool vmulti_update_joystick(IntPtr vmulti, ushort buttons, byte hat, byte x, byte y, byte rx, byte ry, byte rz, byte throttle);
+        public static extern bool vmulti_update_joystick(IntPtr vmulti, ushort buttons, byte hat, byte x, byte y, byte z, byte rz, byte throttle);
 
         IntPtr vmulti;
         bool connected;
@@ -52,14 +52,13 @@ namespace VMultiDllWrapper
         {
             if (connected)
             {
-                return vmulti_update_joystick(vmulti, report.getButtonsRaw(), report.getPOVRaw(), report.getJoystickXRaw(), report.getJoystickYRaw(), 128, 128, 128, 0);
+                return vmulti_update_joystick(vmulti, report.getButtonsRaw(), report.getPOVRaw(), report.getJoystickXRaw(), report.getJoystickYRaw(), 0, 128, 0);
             }
             else
             {
                 return false;
             }
         }
-
 
     }
 }

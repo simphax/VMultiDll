@@ -116,11 +116,9 @@ typedef struct _VMULTI_JOYSTICK_REPORT
 
     BYTE      YValue;
 
+    BYTE      ZValue;
+
     BYTE      Hat;
-
-    BYTE      RXValue;
-
-    BYTE      RYValue;
 
 	BYTE      RZValue;
 
