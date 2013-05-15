@@ -11,22 +11,32 @@ namespace VMultiTest
     {
         static void Main(string[] args)
         {
-            while (true)
-            {
-                VMulti vmulti = new VMulti();
-                Console.WriteLine("Connect: "+vmulti.connect());
-                
-                JoystickButtonState joyButtonState = new JoystickButtonState();
-                joyButtonState.A = true;
-                joyButtonState.X = true;
-                joyButtonState.Left = true;
 
-                JoystickReport joystickReport = new JoystickReport(joyButtonState,1.2,0.4);
+            VMulti vmulti = new VMulti();
+            Console.WriteLine("Connect: " + vmulti.connect());
+            double i = 0;
+            bool running = true;
+            while (running)
+            {
+                JoystickButtonState joyButtonState = new JoystickButtonState();
+                joyButtonState.A = false;
+                joyButtonState.X = false;
+                joyButtonState.Left = false;
+
+                double x = Math.Sin(i);
+                double y = Math.Cos(i);
+
+                Console.WriteLine("x: "+x+" y: "+y);
+
+                JoystickReport joystickReport = new JoystickReport(joyButtonState,x,y);
 
                 Console.WriteLine("Update Joystick: "+vmulti.updateJoystick(joystickReport));
-                vmulti.disconnect();
-                System.Threading.Thread.Sleep(100000000);
+
+                i += 0.1;
+                
+                System.Threading.Thread.Sleep(100);
             }
+            vmulti.disconnect();
         }
     }
 }
