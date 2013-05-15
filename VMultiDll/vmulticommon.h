@@ -122,6 +122,8 @@ typedef struct _VMULTI_JOYSTICK_REPORT
 
     BYTE      RYValue;
 
+	BYTE      RZValue;
+
     USHORT    Buttons;
 
 } VMultiJoystickReport;
