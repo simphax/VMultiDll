@@ -21,7 +21,7 @@ __declspec(dllexport) BOOL vmulti_update_digi(pvmulti_client vmulti, BYTE status
 
 __declspec(dllexport) BOOL vmulti_update_multitouch(pvmulti_client vmulti, PTOUCH pTouch, BYTE actualCount,BYTE request_type,BYTE report_control_id);
 
-__declspec(dllexport) BOOL vmulti_update_joystick(pvmulti_client vmulti, USHORT buttons, BYTE hat, BYTE x, BYTE y, BYTE rx, BYTE ry, BYTE throttle);
+__declspec(dllexport) BOOL vmulti_update_joystick(pvmulti_client vmulti, USHORT buttons, BYTE hat, BYTE x, BYTE y, BYTE rx, BYTE ry, BYTE rz, BYTE throttle);
 
 __declspec(dllexport) BOOL vmulti_update_keyboard(pvmulti_client vmulti, BYTE shiftKeyFlags, BYTE keyCodes[KBD_KEY_CODES]);
 
