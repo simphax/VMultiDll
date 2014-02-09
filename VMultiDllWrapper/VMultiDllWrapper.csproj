@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JoystickReport.cs" />
+    <Compile Include="MultitouchReport.cs" />
     <Compile Include="VMulti.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
