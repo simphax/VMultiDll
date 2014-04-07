@@ -44,25 +44,33 @@ namespace VMultiTest
              * */
 
 
+            System.Threading.Thread.Sleep(5000);
             while(true)
             {
                 List<MultitouchPointerInfo> touches = new List<MultitouchPointerInfo>();
                 bool spacePressed = Convert.ToBoolean(GetKeyState(0x20) & 0x8000);
+                MultitouchPointerInfo pointer = new MultitouchPointerInfo();
+
                 if (spacePressed)
                 {
-                    Console.WriteLine("yay a pointer");
+                    Console.WriteLine("pressed");
+                    pointer.Down = true;
+                }
+                else
+                {
+                    pointer.Down = false;
+                }
 
-                    MultitouchPointerInfo pointer = new MultitouchPointerInfo();
-                    Point mousePos = Control.MousePosition;
-                    Console.WriteLine(mousePos);
-                    pointer.X = ((double)mousePos.X)/2560.0;
-                    pointer.Y = ((double)mousePos.Y)/1440.0;
+                Point mousePos = Control.MousePosition;
+                Console.WriteLine(mousePos);
+                pointer.X = ((double)mousePos.X)/2560.0;
+                pointer.Y = ((double)mousePos.Y)/1440.0;
 
-                    Console.WriteLine("X: " + pointer.X);
-                    Console.WriteLine("Y: " + pointer.Y);
+                Console.WriteLine("X: " + pointer.X);
+                Console.WriteLine("Y: " + pointer.Y);
 
-                    touches.Add(pointer);
-                }   
+                touches.Add(pointer);
+                
                 MultitouchReport report = new MultitouchReport(touches);
 
                 if(!vmulti.updateMultitouch(report))

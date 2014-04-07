@@ -67,7 +67,8 @@ namespace VMultiDllWrapper
         {
             if (connected)
             {
-                return vmulti_update_multitouch(vmulti, report.getTouchesRaw(), report.getTouchesCountRaw(), report.getRequestType(), report.getReportControlId());
+                MultitouchPointerInfoRaw[] touches = report.getTouchesRaw();
+                return vmulti_update_multitouch(vmulti, touches, report.getTouchesCountRaw(), report.getRequestType(), report.getReportControlId());
             }
             else
             {

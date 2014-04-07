@@ -18,14 +18,23 @@ namespace VMultiDllWrapper
 
         private const uint MULTI_MAX_COUNT = 20;
 
+        public bool Down = false;
+        public byte ID = 0;
         public double X = 0;
         public double Y = 0;
 
         public MultitouchPointerInfoRaw getPointerInfoRaw()
         {
             MultitouchPointerInfoRaw info = new MultitouchPointerInfoRaw();
-            info.Status = MULTI_TIPSWITCH_BIT | MULTI_IN_RANGE_BIT | MULTI_CONFIDENCE_BIT;
-            info.ContactID = 1;
+            if (Down)
+            {
+                info.Status = MULTI_TIPSWITCH_BIT | MULTI_IN_RANGE_BIT | MULTI_CONFIDENCE_BIT;
+            }
+            else
+            {
+                info.Status = 0;
+            }
+            info.ContactID = this.ID;
             info.XValue = (ushort)(X * (double)MULTI_MAX_COORDINATE);
             info.YValue = (ushort)(Y * (double)MULTI_MAX_COORDINATE);
             info.Width = 20;
