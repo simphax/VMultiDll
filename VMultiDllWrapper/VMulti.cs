@@ -30,6 +30,9 @@ namespace VMultiDllWrapper
         [DllImport("VMultiDll.dll")]
         public static extern bool vmulti_update_multitouch(IntPtr vmulti, MultitouchPointerInfoRaw[] pTouch, byte actualCount, byte request_type, byte report_control_id);
 
+        [DllImport("VMultiDll.dll")]
+        public static extern bool vmulti_update_keyboard(IntPtr vmulti, byte shiftKeyFlags, byte[] keyCodes);
+
         IntPtr vmulti;
         bool connected;
 
@@ -69,6 +72,18 @@ namespace VMultiDllWrapper
             {
                 MultitouchPointerInfoRaw[] touches = report.getTouchesRaw();
                 return vmulti_update_multitouch(vmulti, touches, report.getTouchesCountRaw(), report.getRequestType(), report.getReportControlId());
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool updateKeyboard(KeyboardReport report)
+        {
+            if (connected)
+            {
+                return vmulti_update_keyboard(vmulti, report.getRawShiftKeyFlags(), report.getRawKeyCodes());
             }
             else
             {

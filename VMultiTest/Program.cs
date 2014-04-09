@@ -18,7 +18,50 @@ namespace VMultiTest
 
             VMulti vmulti = new VMulti();
             Console.WriteLine("Connect: " + vmulti.connect());
-            /* Joystick test
+
+            System.Threading.Thread.Sleep(3000);
+
+            keyboardTest(vmulti);
+
+
+            vmulti.disconnect();
+        }
+
+        [DllImport("USER32.dll")]
+        static extern short GetKeyState(int nVirtKey);
+
+        private static void keyboardTest(VMulti vmulti)
+        {
+            System.Diagnostics.Process.Start("notepad.exe");
+
+            KeyboardReport report = new KeyboardReport();
+
+            report.keyDown(KeyboardKey.H);
+            vmulti.updateKeyboard(report);
+            report.keyUp(KeyboardKey.H);
+            report.keyDown(KeyboardKey.E);
+            vmulti.updateKeyboard(report);
+            report.keyUp(KeyboardKey.E);
+            report.keyDown(KeyboardKey.L);
+            vmulti.updateKeyboard(report);
+            report.keyUp(KeyboardKey.L);
+            vmulti.updateKeyboard(report);
+            report.keyDown(KeyboardKey.L);
+            vmulti.updateKeyboard(report);
+            report.keyUp(KeyboardKey.L);
+            report.keyDown(KeyboardKey.O);
+            vmulti.updateKeyboard(report);
+            report.keyUp(KeyboardKey.O);
+            report.keyDown(KeyboardModifier.LShift);
+            report.keyDown(KeyboardKey.Number1);
+            vmulti.updateKeyboard(report);
+            report.keyUp(KeyboardModifier.LShift);
+            report.keyUp(KeyboardKey.Number1);
+            vmulti.updateKeyboard(report);
+        }
+
+        private void joystickTest(VMulti vmulti)
+        {
             double i = 0;
             bool running = true;
             while (running)
@@ -31,25 +74,24 @@ namespace VMultiTest
                 double x = Math.Sin(i);
                 double y = Math.Cos(i);
 
-                Console.WriteLine("x: "+x+" y: "+y);
+                Console.WriteLine("x: " + x + " y: " + y);
 
-                JoystickReport joystickReport = new JoystickReport(joyButtonState,x,y);
+                JoystickReport joystickReport = new JoystickReport(joyButtonState, x, y);
 
-                Console.WriteLine("Update Joystick: "+vmulti.updateJoystick(joystickReport));
+                Console.WriteLine("Update Joystick: " + vmulti.updateJoystick(joystickReport));
 
                 i += 0.1;
-                
+
                 System.Threading.Thread.Sleep(100);
             }
-             * */
+        }
 
-
-            System.Threading.Thread.Sleep(5000);
-
+        private void multitouchTest(VMulti vmulti)
+        {
             double x = 500;
             double y = 500;
 
-            while(true)
+            while (true)
             {
                 List<MultitouchPointerInfo> touches = new List<MultitouchPointerInfo>();
                 bool spacePressed = Convert.ToBoolean(GetKeyState(0x20) & 0x8000);
@@ -88,21 +130,19 @@ namespace VMultiTest
                 Console.WriteLine("Y: " + pointer.Y);
 
                 touches.Add(pointer);
-                
+
                 MultitouchReport report = new MultitouchReport(touches);
 
-                if(!vmulti.updateMultitouch(report))
+                if (!vmulti.updateMultitouch(report))
                 {
                     Console.WriteLine("fail");
                 }
 
                 System.Threading.Thread.Sleep(10);
             }
-
-            vmulti.disconnect();
         }
 
-        [DllImport("USER32.dll")]
-        static extern short GetKeyState(int nVirtKey);
+
+
     }
 }
