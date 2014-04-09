@@ -34,6 +34,8 @@ namespace VMultiTest
         {
             System.Diagnostics.Process.Start("notepad.exe");
 
+            System.Threading.Thread.Sleep(3000);
+
             KeyboardReport report = new KeyboardReport();
 
             report.keyDown(KeyboardKey.H);
@@ -57,6 +59,14 @@ namespace VMultiTest
             vmulti.updateKeyboard(report);
             report.keyUp(KeyboardModifier.LShift);
             report.keyUp(KeyboardKey.Number1);
+            vmulti.updateKeyboard(report);
+
+            System.Threading.Thread.Sleep(4000);
+            report.keyDown(KeyboardModifier.LWin);
+            report.keyDown(KeyboardKey.D);
+            vmulti.updateKeyboard(report);
+            report.keyUp(KeyboardModifier.LWin);
+            report.keyUp(KeyboardKey.D);
             vmulti.updateKeyboard(report);
         }
 

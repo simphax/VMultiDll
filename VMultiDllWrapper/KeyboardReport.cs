@@ -9,16 +9,26 @@ namespace VMultiDllWrapper
     public enum KeyboardKey : byte
     {
         CapitalLock = 0x39,
+        A = 4,
+        B = 5,
+        C = 6,
+        D = 7,
         H = 0x0b,
         E = 0x08,
         L = 0x0f,
         O = 0x12,
         Number1 = 0x1e
     }
+
     public enum KeyboardModifier : byte
     {
         LControl = 1,
-        LShift = 2
+        LShift = 2,
+        LAlt = 4,
+        LWin = 8,
+        RShift = 32,
+        RAlt = 64,
+        RWin = 128
     }
 
     public class KeyboardReport
