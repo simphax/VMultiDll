@@ -9,15 +9,47 @@ namespace VMultiDllWrapper
     public enum KeyboardKey : byte
     {
         CapitalLock = 0x39,
-        A = 4,
-        B = 5,
-        C = 6,
-        D = 7,
-        H = 0x0b,
+        A = 0x04,
+        B = 0x05,
+        C = 0x06,
+        D = 0x07,
         E = 0x08,
-        L = 0x0f,
+        F = 0x09,
+        G = 0x0A,
+        H = 0x0B,
+        I = 0x0C,
+        J = 0x0D,
+        K = 0x0E,
+        L = 0x0F,
+        M = 0x10,
+        N = 0x11,
         O = 0x12,
+        P = 0x13,
+        Q = 0x14,
+        R = 0x15,
+        S = 0x16,
+        T = 0x17,
+        U = 0x18,
+        V = 0x19,
+        W = 0x1A,
+        X = 0x1B,
+        Y = 0x1C,
+        Z = 0x1D,
+     
+       
         Number1 = 0x1e
+        Number2 = 0x1f
+        Number3 = 0x20
+        Number4 = 0x21
+        Number5 = 0x22
+        Number6 = 0x23
+        Number7 = 0x24
+        Number8 = 0x25
+        Number9 = 0x26
+        Number0 = 0x27
+   
+        
+        
     }
 
     public enum KeyboardModifier : byte
