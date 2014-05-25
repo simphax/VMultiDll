@@ -8,7 +8,6 @@ namespace VMultiDllWrapper
 {
     public enum KeyboardKey : byte
     {
-        CapitalLock = 0x39,
         A = 0x04,
         B = 0x05,
         C = 0x06,
@@ -48,12 +47,26 @@ namespace VMultiDllWrapper
         Number9 = 0x26,
         Number0 = 0x27,
 
-        Enter   = 0x28,
-        Escape  = 0x29,
-        Delete  = 0x2A,
-        Tab     = 0x2B,
-        Spacebar= 0x2C,
-        Subtract= 0x2D,   // should be "-", but not on the numberpad
+        Enter       = 0x28,
+        Escape      = 0x29,
+        Delete      = 0x2A,
+        Tab         = 0x2B,
+        Spacebar    = 0x2C,
+        Subtract    = 0x2D,   //non-keypad
+        Equals      = 0x2E,   //means "="
+        OpenBrace   = 0x2F,
+        CloseBrace  = 0x30,
+        Backslash   = 0x31,     //non-keypad
+        Hash        = 0x32,
+        Semicolon   = 0x33,
+        Quote       = 0x34,
+        Tilde       = 0x35,  //
+        Comma       = 0x36,
+        Dot         = 0x37,
+        ForwardSlash= 0x38,
+        CapsLock    = 0x39,
+        
+        
         
         F1      = 0x3A;
         F2      = 0x3B;
@@ -77,15 +90,29 @@ namespace VMultiDllWrapper
         Delete          = 0x4C;
         End             = 0x4D;
         PageDown        = 0x4E;
-        RightArrow      = 0x4F;  // is "Arrow" neededß 
+        RightArrow      = 0x4F;  // is "Arrow" needed?
         LeftArrow       = 0x50;
         DownArrow       = 0x51;
         UpArrow         = 0x52;
         NumLock         = 0x53; 
-        Divide          = 0x54;
-        Multiply        = 0x55;
-        Subtract        = 0x56;
-        Add             = 0x57;
+        KeypadDivide    = 0x54;
+        KeypadMultiply  = 0x55;
+        KeypadSubtract  = 0x56;
+        KeypadAdd       = 0x57;
+        KeypadEnter     = 0x58;
+        Keypad1         = 0x59;
+        Keypad2         = 0x5A;
+        Keypad3         = 0x5B;
+        Keypad4         = 0x5C;
+        Keypad5         = 0x5D;
+        Keypad6         = 0x5E;
+        Keypad7         = 0x5F;
+        Keypad8         = 0x60;
+        Keypad9         = 0x61;
+        Keypad0         = 0x62;
+        Keypad.         = 0x63;
+        Keypad|         = 0x64;
+        KeypadApplication= 0x65;
         
         
     }
@@ -96,6 +123,7 @@ namespace VMultiDllWrapper
         LShift = 2,
         LAlt = 4,
         LWin = 8,
+        RControl = 16,
         RShift = 32,
         RAlt = 64,
         RWin = 128
