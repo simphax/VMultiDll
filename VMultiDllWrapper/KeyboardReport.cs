@@ -49,7 +49,7 @@ namespace VMultiDllWrapper
 
         Enter       = 0x28,
         Escape      = 0x29,
-        Delete      = 0x2A,
+        Backspace   = 0x2A,
         Tab         = 0x2B,
         Spacebar    = 0x2C,
         Subtract    = 0x2D,   //non-keypad
@@ -66,54 +66,51 @@ namespace VMultiDllWrapper
         ForwardSlash= 0x38,
         CapsLock    = 0x39,
         
+        F1      = 0x3A,
+        F2      = 0x3B,
+        F3      = 0x3C,
+        F4      = 0x3D,
+        F5      = 0x3E,
+        F6      = 0x3F,
+        F7      = 0x40,
+        F8      = 0x41,
+        F9      = 0x42,
+        F10     = 0x43,
+        F11     = 0x44,
+        F12     = 0x45,
         
-        
-        F1      = 0x3A;
-        F2      = 0x3B;
-        F3      = 0x3C;
-        F4      = 0x3D;
-        F5      = 0x3E;
-        F6      = 0x3F;
-        F7      = 0x40;
-        F8      = 0x41;
-        F9      = 0x42;
-        F10     = 0x43;
-        F11     = 0x44;
-        F12     = 0x45;
-        
-        PrintScreen     = 0x46;
-        ScrollLock      = 0x47;
-        Pause           = 0x48;
-        Insert          = 0x49;
-        Home            = 0x4A;
-        PageUp          = 0x4B;
-        Delete          = 0x4C;
-        End             = 0x4D;
-        PageDown        = 0x4E;
-        RightArrow      = 0x4F;  // is "Arrow" needed?
-        LeftArrow       = 0x50;
-        DownArrow       = 0x51;
-        UpArrow         = 0x52;
-        NumLock         = 0x53; 
-        KeypadDivide    = 0x54;
-        KeypadMultiply  = 0x55;
-        KeypadSubtract  = 0x56;
-        KeypadAdd       = 0x57;
-        KeypadEnter     = 0x58;
-        Keypad1         = 0x59;
-        Keypad2         = 0x5A;
-        Keypad3         = 0x5B;
-        Keypad4         = 0x5C;
-        Keypad5         = 0x5D;
-        Keypad6         = 0x5E;
-        Keypad7         = 0x5F;
-        Keypad8         = 0x60;
-        Keypad9         = 0x61;
-        Keypad0         = 0x62;
-        Keypad.         = 0x63;
-        Keypad|         = 0x64;
-        KeypadApplication= 0x65;
-        
+        PrintScreen     = 0x46,
+        ScrollLock      = 0x47,
+        Pause           = 0x48,
+        Insert          = 0x49,
+        Home            = 0x4A,
+        PageUp          = 0x4B,
+        Delete          = 0x4C,
+        End             = 0x4D,
+        PageDown        = 0x4E,
+        RightArrow      = 0x4F,  // is "Arrow" needed?
+        LeftArrow       = 0x50,
+        DownArrow       = 0x51,
+        UpArrow         = 0x52,
+        NumLock         = 0x53, 
+        KeypadDivide    = 0x54,
+        KeypadMultiply  = 0x55,
+        KeypadSubtract  = 0x56,
+        KeypadAdd       = 0x57,
+        KeypadEnter     = 0x58,
+        Keypad1         = 0x59,
+        Keypad2         = 0x5A,
+        Keypad3         = 0x5B,
+        Keypad4         = 0x5C,
+        Keypad5         = 0x5D,
+        Keypad6         = 0x5E,
+        Keypad7         = 0x5F,
+        Keypad8         = 0x60,
+        Keypad9         = 0x61,
+        Keypad0         = 0x62,
+        KeypadDecimal         = 0x63,
+        KeypadSeparator         = 0x64,
+        KeypadApplication= 0x65
         
     }
 
