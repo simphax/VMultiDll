@@ -33,20 +33,25 @@ namespace VMultiDllWrapper
         [DllImport("VMultiDll.dll")]
         public static extern bool vmulti_update_keyboard(IntPtr vmulti, byte shiftKeyFlags, byte[] keyCodes);
 
-        IntPtr vmulti;
-        bool connected;
+        private IntPtr vmulti;
+        private bool connected;
 
         public VMulti()
         {
             vmulti = vmulti_alloc();
         }
 
-        public bool connect()
+        public virtual bool isConnected()
+        {
+            return this.connected;
+        }
+
+        public virtual bool connect()
         {
             return this.connected = vmulti_connect(vmulti, 1);
         }
 
-        public void disconnect()
+        public virtual void disconnect()
         {
             if (connected)
             {
@@ -54,7 +59,7 @@ namespace VMultiDllWrapper
             }
         }
 
-        public bool updateJoystick(JoystickReport report)
+        public virtual bool updateJoystick(JoystickReport report)
         {
             if (connected)
             {
@@ -66,7 +71,7 @@ namespace VMultiDllWrapper
             }
         }
 
-        public bool updateMultitouch(MultitouchReport report)
+        public virtual bool updateMultitouch(MultitouchReport report)
         {
             if (connected)
             {
@@ -79,7 +84,7 @@ namespace VMultiDllWrapper
             }
         }
 
-        public bool updateKeyboard(KeyboardReport report)
+        public virtual bool updateKeyboard(KeyboardReport report)
         {
             if (connected)
             {
